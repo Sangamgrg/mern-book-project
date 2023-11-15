@@ -53,7 +53,7 @@ const Navbar = () => {
           </Link>
 
           {/* nav items for large devices */}
-          <ul className="md:flex space-x-2 hidden">
+          <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
                 key={path}
