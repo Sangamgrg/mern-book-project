@@ -5,7 +5,6 @@ import FavBook from "./FavBook";
 import PromoBanner from "./PromoBanner";
 import OtherBooks from "./OtherBooks";
 import Review from "./Review";
-import FooterBar from "../components/FooterBar";
 
 const Home = () => {
   return (
@@ -16,7 +15,6 @@ const Home = () => {
       <PromoBanner />
       <OtherBooks />
       <Review />
-      <FooterBar />
     </div>
   );
 };
