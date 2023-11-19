@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../App";
 import Home from "../home/Home";
 import Shop from "../shop/Shop";
-import About from "../components/About";
 import Blog from "../components/Blog";
 import SingleBook from "../shop/SingleBook";
 import DashboardLayout from "../dashboard/DashboardLayout";
@@ -11,6 +10,9 @@ import UploadBook from "../dashboard/UploadBook";
 import ManageBook from "../dashboard/ManageBook";
 import EditBooks from "../dashboard/EditBooks";
 import Signup from "../components/SignUp";
+import Login from "../components/Login";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Logout from "../components/Logout";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +26,6 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <Shop />,
-      },
-      {
-        path: "/about",
-        element: <About />,
       },
       {
         path: "/blog",
@@ -47,7 +45,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/admin/dashboard/upload",
@@ -72,6 +74,14 @@ const router = createBrowserRouter([
   {
     path: "sign-up",
     element: <Signup />,
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "logout",
+    element: <Logout />,
   },
 ]);
 

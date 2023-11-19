@@ -34,7 +34,6 @@ const ManageBook = () => {
           <Table.HeadCell>Book Name</Table.HeadCell>
           <Table.HeadCell>Author Name</Table.HeadCell>
           <Table.HeadCell>Category</Table.HeadCell>
-          <Table.HeadCell>Prices</Table.HeadCell>
           <Table.HeadCell>
             <span>Edit or Manage</span>
           </Table.HeadCell>
@@ -50,7 +49,6 @@ const ManageBook = () => {
               </Table.Cell>
               <Table.Cell>{book.authorName}</Table.Cell>
               <Table.Cell>{book.category}</Table.Cell>
-              <Table.Cell>$10</Table.Cell>
               <Table.Cell>
                 <Link
                   className="font-medium text-cyan-600 hover:underline dark:text-cyan-500 mr-5"
