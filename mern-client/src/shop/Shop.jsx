@@ -6,12 +6,12 @@ const Shop = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-books")
+    fetch("https://mern-book-project.vercel.app/all-books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
   return (
-    <div className="mt-28 px-4 lg:px-24">
+    <div className="mt-28 px-4 lg:px-2 4">
       <h2 className="text-5xl font-bold text-center">All Books are here</h2>
 
       <div className="grid gap-8 my-12 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1">
