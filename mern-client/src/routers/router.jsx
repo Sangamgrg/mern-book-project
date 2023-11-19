@@ -9,10 +9,10 @@ import Dashboard from "../dashboard/Dashboard";
 import UploadBook from "../dashboard/UploadBook";
 import ManageBook from "../dashboard/ManageBook";
 import EditBooks from "../dashboard/EditBooks";
-import Signup from "../components/SignUp";
 import Login from "../components/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Logout from "../components/Logout";
+import Signup from "../components/Signup";
 
 const router = createBrowserRouter([
   {
