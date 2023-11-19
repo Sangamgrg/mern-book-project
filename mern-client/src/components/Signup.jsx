@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
+import googleLogo from "../assets/google-logo.svg";
 
 const Signup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, loginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("error");
 
   const location = useLocation();
@@ -31,6 +32,22 @@ const Signup = () => {
         setError(errorMessage);
       });
   };
+
+  //Signup using google account
+  const handleRegister = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        alert("Sign up sucessfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -75,6 +92,18 @@ const Signup = () => {
                   </button>
                 </div>
               </form>
+            </div>
+
+            <hr />
+            <div className="flex w-full items-center flex-col mt-5 gap-3">
+              <button onClick={handleRegister} cclassName="block">
+                <img
+                  src={googleLogo}
+                  alt=""
+                  className="w-12 h-12 inline-block"
+                />
+                Login with Google
+              </button>
             </div>
           </div>
         </div>
