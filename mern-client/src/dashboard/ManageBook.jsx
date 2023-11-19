@@ -6,7 +6,7 @@ const ManageBook = () => {
   const [allBooks, setAllBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-books")
+    fetch("http://mern-book-project.vercel.app/all-books")
       .then((res) => res.json())
       .then((data) => setAllBooks(data));
   }, []);
@@ -14,7 +14,7 @@ const ManageBook = () => {
   //delete a book
   const handleDelete = (id) => {
     // console.log(id);
-    fetch(`http://localhost:5000/book/${id}`, {
+    fetch(`http://mern-book-project.vercel.app/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
