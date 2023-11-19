@@ -66,7 +66,7 @@ const EditBooks = () => {
     // console.log(bookObj);
 
     //update book data
-    fetch(`http://mern-book-project.vercel.app/${id}`, {
+    fetch(`https://mern-book-project.vercel.app/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
