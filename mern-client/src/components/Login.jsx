@@ -3,26 +3,24 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
 
-const Signup = () => {
-  const { createUser, loginWithGoogle } = useContext(AuthContext);
-  const [error, setError] = useState("error");
+const Login = () => {
+  const { login, loginWithGoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleSignUp = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-
-    createUser(email, password)
+    login(email, password)
       .then((userCredential) => {
-        // Signed up
         const user = userCredential.user;
-        alert("Sign up sucessfully");
+        alert("login sucessfully");
         navigate(from, { replace: true });
         // ...
       })
@@ -42,7 +40,6 @@ const Signup = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage);
       });
@@ -55,11 +52,11 @@ const Signup = () => {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold">Signup form</h1>
+              <h1 className="text-2xl font-semibold">Login form</h1>
             </div>
             <div className="divide-y divide-gray-200">
               <form
-                onSubmit={handleSignUp}
+                onSubmit={handleLogin}
                 className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <div className="relative">
                   <input
@@ -79,16 +76,25 @@ const Signup = () => {
                     placeholder="Password"
                   />
                 </div>
+                <div>
+                  {error ? (
+                    <p className="text-red-600 text-base">
+                      Email or password is not correct:
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <p>
-                  If you have an account. Please{" "}
-                  <Link to="/login" className="text-blue-600 underline">
-                    Login
-                  </Link>{" "}
-                  Here
+                  If you haven't an account. Please {""}
+                  <Link to="/sign-up" className="text-blue-600 underline">
+                    Sign up
+                  </Link>
+                  {""} Here
                 </p>
                 <div className="relative">
                   <button className="bg-blue-500 text-white rounded-md px-6 py-1">
-                    Sign up
+                    Log in
                   </button>
                 </div>
               </form>
@@ -112,4 +118,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

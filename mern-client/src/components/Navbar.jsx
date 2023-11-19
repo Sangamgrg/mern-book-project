@@ -35,9 +35,8 @@ const Navbar = () => {
   //navItems here
   const navItems = [
     { link: "Home", path: "/" },
-    { link: "About", path: "/about" },
-    { link: "Shop", path: "/shop" },
-    { link: "Sell Your Book", path: "/admin/dashboard" },
+    { link: "Book collections", path: "/shop" },
+    { link: "Manage books", path: "/admin/dashboard" },
     { link: "Blog", path: "/blog" },
   ];
   return (
@@ -69,10 +68,7 @@ const Navbar = () => {
 
           {/* btn for lg devices */}
           <div className="space-x-12 hidden lg:flex items-center">
-            <button>
-              <FaBarsStaggered className="w-5 hover:text-blue-700" />
-              {/* {user ? user.email : ""} */}
-            </button>
+            <p>{user?.displayName ? "Hi, " + user.displayName : ""}</p>
           </div>
 
           {/* menu btn for mobile devices */}
