@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         path: "/book/:id",
         element: <SingleBook />,
         loader: ({ params }) =>
-          fetch(`https://mern-book-project.vercel.app/${params.id}`),
+          fetch(`https://mern-book-project.vercel.app/book/${params.id}`),
       },
     ],
   },
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-books/:id",
         element: <EditBooks />,
         loader: ({ params }) =>
-          fetch(`https://mern-book-project.vercel.app/${params.id}`),
+          fetch(`https://mern-book-project.vercel.app/book/${params.id}`),
       },
     ],
   },
