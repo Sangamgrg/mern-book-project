@@ -4,13 +4,7 @@ const port = process.env.PORT || 5000;
 const cors = require("cors");
 
 //middleware
-app.use(
-  cors({
-    origin: ["https://mern-book-project.vercel.app"],
-    methods: ["POST", "GET", "PATCH", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
