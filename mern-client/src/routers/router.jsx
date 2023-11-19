@@ -9,10 +9,10 @@ import Dashboard from "../dashboard/Dashboard";
 import UploadBook from "../dashboard/UploadBook";
 import ManageBook from "../dashboard/ManageBook";
 import EditBooks from "../dashboard/EditBooks";
-import Signup from "../components/SignUp";
 import Login from "../components/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Logout from "../components/Logout";
+import Signup from "../components/Signup";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         path: "/book/:id",
         element: <SingleBook />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/book/${params.id}`),
+          fetch(`https://mern-book-project.vercel.app/${params.id}`),
       },
     ],
   },
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-books/:id",
         element: <EditBooks />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/book/${params.id}`),
+          fetch(`https://mern-book-project.vercel.app/${params.id}`),
       },
     ],
   },
