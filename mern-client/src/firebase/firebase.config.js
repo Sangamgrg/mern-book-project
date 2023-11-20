@@ -1,12 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+require("dotenv").config();
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAXOXMKYc0sq74BzM_eXgJfpkuICVYqu8I",
-  authDomain: "mern-book-inventory-26a58.firebaseapp.com",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
   projectId: "mern-book-inventory-26a58",
   storageBucket: "mern-book-inventory-26a58.appspot.com",
   messagingSenderId: "972853126486",
